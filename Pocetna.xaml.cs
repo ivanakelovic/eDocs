@@ -470,8 +470,8 @@ JOIN firme ON fakture.firma=firme.ID";
         {
             updateView("Pocetna");
             prikaziDugmeADD(btnFiltriraj);
-            
-            
+
+            cmbSelektovanaFirma.Visibility = Visibility.Visible;
             PrikaziPDVpoMjesecima(null);
         }
 
@@ -675,12 +675,12 @@ JOIN firme ON fakture.firma=firme.ID";
                     throw new InvalidOperationException("Niste prijavljeni na MEGA.");
                 }
                 var nodes = await megaClient.GetNodesAsync();
-                MessageBox.Show($"putanjafajla {putanja}");
+               // MessageBox.Show($"putanjafajla {putanja}");
                 string fileNameBezKvacica = StringHelper.PretvoriUBezKvacica(putanja);
                
                 var fileNode = nodes.FirstOrDefault(n => n.Type == NodeType.File && StringHelper.PretvoriUBezKvacica(n.Name) == fileNameBezKvacica);
 
-                MessageBox.Show($"FileNode: {fileNode?.Name ?? "Not Found"}");
+               // MessageBox.Show($"FileNode: {fileNode?.Name ?? "Not Found"}");
                 if (fileNode == null)
                 {
                     throw new FileNotFoundException("Dokument nije pronađen na MEGA-u.");
@@ -690,7 +690,7 @@ JOIN firme ON fakture.firma=firme.ID";
                 // var url = megaClient.GetDownloadLink(fileNode);
                 var url = await megaClient.GetDownloadLinkAsync(fileNode);
                 // MessageBox.Show($"url> {url}");
-                MessageBox.Show($"urll> {url}");
+               // MessageBox.Show($"urll> {url}");
 
                 return url.ToString();
             }
@@ -741,7 +741,7 @@ JOIN firme ON fakture.firma=firme.ID";
 
             string fileNameBezKvacica = StringHelper.PretvoriUBezKvacica(putanjaFajla);
 
-            MessageBox.Show($"putanja bez kvacica {fileNameBezKvacica} u view");
+           // MessageBox.Show($"putanja bez kvacica {fileNameBezKvacica} u view");
 
 
             try
