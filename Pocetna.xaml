@@ -1,0 +1,92 @@
+﻿<Window x:Class="WPF_fakture_otpremnice.Pocetna"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_fakture_otpremnice"
+      
+        mc:Ignorable="d"
+        Title="Pocetna" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="DarkRed"/>
+            <Setter Property="Foreground" Value="AliceBlue"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+
+
+            <ColumnDefinition x:Name="columnAdmin"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Name="lblTipDokumenta" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="9"/>
+        
+        <DataGrid Name="dgDokumenti" Grid.Row="3" Grid.ColumnSpan="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalScrollBarVisibility="Auto" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="True" CanUserSortColumns="True">
+           
+        </DataGrid>
+
+        <TextBox Name="txtPretraga" VerticalContentAlignment="Center" Grid.Row="2"  Width="200"  Height="30"/>
+        <Button Content="PRETRAZI" Margin="2" Background="DarkGreen" Foreground="Beige" Height="35" Grid.Column="1" Grid.Row="2" Click="btnPretrazi_Click"/>
+
+        <ComboBox Name="cmbSelektovanaFirma" Grid.Row="2" Grid.Column="6" HorizontalAlignment="Right" Margin="2" SelectedValuePath="jib"  DisplayMemberPath="ime" MouseLeftButtonDown="cmbSelektovanaFirma_MouseLeftButtonDown"/>
+        <Button Content="FILTRIRAJ PO FIRMAMA" Margin="2" Name="btnFiltriraj" Background="DarkGreen" Foreground="Beige" Height="35" Grid.Column="7" Grid.Row="2" HorizontalAlignment="Left" Click="btnFiltrirajPoFirmama"/>
+
+
+        <Button Grid.Column="0" Content="POCETNA" HorizontalAlignment="Center" Grid.Row="1" Background="Beige" VerticalAlignment="Top"  Width="100" Height="35" Click="btnPocetna" />
+        <Button Grid.Column="1" Content="FAKTURE" HorizontalAlignment="Center" Grid.Row="1" Background="Beige" VerticalAlignment="Top"  Width="100" Height="35" Click="btnPrikaziFakture" />
+        <Button Grid.Column="2" Content="OTPREMNICE" HorizontalAlignment="Center" Grid.Row="1" Background="Beige" VerticalAlignment="Top" Width="100" Height="35" Click="btnPrikaziOtpremnice" />
+        <Button Grid.Column="3" Content="REVERSI" HorizontalAlignment="Center" Grid.Row="1" Background="Beige" VerticalAlignment="Top" Width="100" Height="35" Click="btnPrikaziReverse" />
+        <Button Grid.Column="4" Content="FIRME" HorizontalAlignment="Center" Grid.Row="1" Background="Beige" VerticalAlignment="Top" Width="100" Height="35" Click="btnPrikaziFirme" />
+        <Button Grid.Column="5" Content="PROTOKOLI" HorizontalAlignment="Center" Grid.Row="1" Background="Beige" VerticalAlignment="Top" Width="100" Height="35" Click="btnPrikaziProtokole" />
+        <Button Grid.Column="6" Content="PONUDE" HorizontalAlignment="Center" Grid.Row="1" Background="Beige" VerticalAlignment="Top" Width="100" Height="35" Click="btnPrikaziPonude" />
+        <Button Grid.Column="7" Content="PROJEKTI" HorizontalAlignment="Center" Grid.Row="1" Background="Beige" VerticalAlignment="Top" Width="100" Height="35" Click="btnPrikaziProjekte_Click" />
+
+        <Button Grid.Column="7" Content="Dodaj fakturu" Name="btnFakturaDodaj" HorizontalAlignment="Center" Grid.Row="2" Background="Beige" Visibility="Collapsed" VerticalAlignment="Center"  Width="100" Height="35" Click="btnDodajFakturu"/>
+        <Button Grid.Column="7" Content="Dodaj otpremnicu" Name="btnOtpremnicaDodaj" HorizontalAlignment="Center" Grid.Row="2" Background="Beige" Visibility="Collapsed" VerticalAlignment="Top"  Width="100" Height="35" Click="btn_dodajOtpremnicu"/>
+        <Button Grid.Column="7" Content="Dodaj revers" Name="btnReversDodaj" HorizontalAlignment="Center" Grid.Row="2" Background="Beige" Visibility="Collapsed" VerticalAlignment="Top" Width="100" Height="35" Click="btn_dodajRevers"/>
+        <Button Grid.Column="7" Content="Dodaj firmu" Name="btnFirmaDodaj" HorizontalAlignment="Center" Grid.Row="2" Background="Beige" Visibility="Collapsed" VerticalAlignment="Top"  Width="100" Height="35" Click="btnDodajFirmu"/>
+        <Button Grid.Column="7" Content="Dodaj protokol" Name="btnProtokolDodaj" HorizontalAlignment="Center" Grid.Row="2" Background="Beige" Visibility="Collapsed" VerticalAlignment="Top"  Width="100" Height="35" Click="btnDodajProtokol"/>
+        <Button Grid.Column="7" Content="Dodaj ponudu" Name="btnPonudaDodaj" HorizontalAlignment="Center" Grid.Row="2" Background="Beige" Visibility="Collapsed" VerticalAlignment="Top"  Width="100" Height="35" Click="btnDodajPonudu" />
+        <Button Grid.Column="7" Content="Dodaj projekat" Name="btnProjekatDodaj" HorizontalAlignment="Center" Grid.Row="2" Background="Beige" Visibility="Collapsed" VerticalAlignment="Top"  Width="100" Height="35" Click="btnDodajProjekat_Click" />
+
+        <Button Grid.Column="9" Content="Odobri naloge" Grid.Row="1"  Visibility="Collapsed" Click="btnOdobriNaloge" Background="#8B0000" FontSize="25" Name="btnOdobriNalog" Foreground="AliceBlue"/>
+
+        <DataGrid Name="dgPDV" Grid.Row="3" Grid.ColumnSpan="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="True" CanUserSortColumns="True" RowHeight="40">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mjesec" Binding="{Binding Mjesec}" Width="*"/>
+                <DataGridTextColumn Header="Ulaz" Binding="{Binding Ulaz}" Width="*"/>
+                <DataGridTextColumn Header="Izlaz" Binding="{Binding Izlaz}" Width="*"/>
+                <DataGridTextColumn Header="Saldo" Binding="{Binding Saldo}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid Name="dgFirme" Grid.Row="3" Grid.ColumnSpan="9" HorizontalAlignment="Stretch" Visibility="Collapsed" VerticalAlignment="Stretch" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="True" CanUserSortColumns="True" RowHeight="40"/>
+        <DataGrid Name="dgProtokoli" Grid.Row="3" Grid.ColumnSpan="9" HorizontalAlignment="Stretch" Visibility="Collapsed" VerticalAlignment="Stretch" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="True" CanUserSortColumns="True" RowHeight="40"/>
+        <DataGrid Name="dgProjekti" Grid.Row="3" Grid.ColumnSpan="9" HorizontalAlignment="Stretch" Visibility="Collapsed" VerticalAlignment="Stretch" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="True" CanUserSortColumns="True" RowHeight="40"/>
+
+
+
+    </Grid>
+</Window>

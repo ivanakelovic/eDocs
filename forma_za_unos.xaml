@@ -1,0 +1,62 @@
+﻿<Window x:Class="WPF_fakture_otpremnice.forma_za_unos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_fakture_otpremnice"
+        mc:Ignorable="d"
+        Title="Unos Podataka" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Foreground="#8B0000" Content="UNESITE PODATKE" FontWeight="Bold" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="30"/>
+
+        <Label Content="Firma:" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Name="txtSearchInvestitor" Grid.Row="2" Grid.Column="1" Width="180" Height="20" HorizontalAlignment="Right" Margin="10,0,0,0" VerticalAlignment="Top" TextChanged="txtSearchFirma_TextChanged" />
+        <ComboBox Name="cmbFirma" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" SelectedValuePath="jib" Width="200" DisplayMemberPath="ime"/>
+
+        <Label Grid.Row="7" Content="Broj dokumenta:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Name="txtBrojDokumenta" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+
+        <Label Grid.Row="3" Content="Datum:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <DatePicker Name="dpDatum" Grid.Row="3" HorizontalAlignment="Left" Grid.Column="1" Width="200"/>
+
+        <Label Grid.Row="4" Content="Iznos bez PDV-a:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Name="txtIznos" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+
+        <Label Grid.Row="5" Content="Izracunaj automatski PDV:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <RadioButton  Name="rbAutomatskiPDV"  Content="DA" IsChecked="True" Checked="izracunajPDVAutomatski"/>
+            <RadioButton Name="rbUnosPDV" Content="NE" IsChecked="False" Checked="izracunajManuelnoPDV"/>
+        </StackPanel>
+        <TextBox Name="txtPDVstopa" Visibility="Hidden" Grid.Column="1" Grid.Row="4" Width="35"/>
+        </StackPanel>
+        <Label Name="lblPlaceno" Grid.Row="6" Visibility="Collapsed" Content="Ulaz/Izlaz:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <StackPanel Name="stackPlaceno" Grid.Row="6" Visibility="Collapsed" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <RadioButton x:Name="rbPlaceno" Content="Izlaz" GroupName="Placanje" />
+            <RadioButton x:Name="rbNeplaceno" Content="Ulaz" GroupName="Placanje" IsChecked="True" />
+        </StackPanel>
+
+        <Button Grid.Row="1" Grid.Column="1" Name="btnOdaberiFajl" Content="Odaberite fajl" Click="odaberiFajl" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Name="txtFajlPutanja" Grid.Row="1" Text="Nema odabranog fajla" TextWrapping="Wrap"/>
+        <Button Name="btnSacuvaj" Grid.Row="8" Background="#8B0000" Foreground="AliceBlue"  Grid.ColumnSpan="2" Content="Sacuvaj podatke" Click="dodaj_dokument"/>
+
+
+    </Grid>
+  
+</Window>

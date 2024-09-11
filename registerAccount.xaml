@@ -1,0 +1,48 @@
+﻿<Window x:Class="WPF_fakture_otpremnice.registerAccount"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_fakture_otpremnice"
+        mc:Ignorable="d"
+        Title="registerAccount" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+           
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Label Grid.ColumnSpan="2" Content="NAPRAVI NALOG" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#8B0000" FontWeight="Bold"/>
+
+        <Label Content="Ime" Grid.Row="1" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Name="txtImeKorisnika" VerticalAlignment="Center" />
+
+        <Label Content="Prezime" Grid.Row="2" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Name="txtPrezime" VerticalAlignment="Center"/>
+
+        <Label Grid.Row="3" Content="e-mail" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Name="txtEmail" VerticalAlignment="Center"/>
+
+        <Label Grid.Row="4" Content="lozinka" VerticalAlignment="Center"/>
+        <PasswordBox Grid.Row="4" Grid.Column="1" Name="txtLozinka" VerticalAlignment="Center"/>
+
+        <Label Content="Firma:" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <ComboBox Name="cmbFirma" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" SelectedValuePath="ID" Width="200" DisplayMemberPath="ime"/>
+
+       
+        <Button Grid.Row="7" Grid.ColumnSpan="2" Content="Sacuvaj" Background="#8B0000" Foreground="AliceBlue" Click="btnRegistrujSe" Margin="5"/>
+
+    </Grid>
+</Window>
